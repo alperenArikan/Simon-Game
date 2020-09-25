@@ -15,6 +15,16 @@ $(document).keypress(function (e) {
     }
 
 });
+$(document).click(function (e) { 
+    if(started == false ){
+        started = true;
+
+        $("#level-title").text("Level: "+level);
+        nextSequence();
+        
+    }
+
+});
 function nextSequence(){
     userSelectPattern= [];
     level = level +1;
@@ -61,7 +71,7 @@ function answerCheck(level){
     }
 
     else{
-        $("#level-title").text("Game Over !! Please press a key to start again!");
+        $("#level-title").text("Game Over !! Please Press Any Key Or Click On The Screen To Play Again!");
         audioPlay("wrong");
         gameOver();
     }
