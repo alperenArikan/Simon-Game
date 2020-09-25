@@ -57,7 +57,7 @@ function flashCards(color){
     $("#"+color).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 }
 function clickFlash(color){
-    $("#"+color).fadeOut(10).fadeIn(10);
+    $("#"+color).fadeOut(25).fadeIn(25).fadeOut(25).fadeIn(25);
 }
 
 $(".btn").click(function (e) { 
@@ -76,7 +76,7 @@ function answerCheck(level){
 
             setTimeout(() => {
                 nextSequence();
-            }, 1000);
+            }, 1500);
 
         }
    
