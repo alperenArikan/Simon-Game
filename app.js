@@ -4,31 +4,41 @@ var gamePattern = [];
 var userSelectPattern =  [];
 var level = 0;
 
+if($(window).width() > 1200){
+    $("#level-title").text("Press Any Key To Start The Game");
+    $(document).keypress(function (e) { 
+        if(started == false ){
+            started = true;
+    
+            $("#level-title").text("Level: "+level);
+            nextSequence();
+            
+        }
+    
+    });
+}
+else{
+    $("#level-title").text("Click On The Screen To Start The Game");
+    $(document).click(function (e) { 
 
-$(document).keypress(function (e) { 
-    if(started == false ){
-        started = true;
+        if(started == false ){
+            started = true;
+    
+            $("#level-title").text("Level: "+level);
+            nextSequence();
+            
+        }
+        else{
+            console.log("Error");
+        }
+    
+    });
+}
 
-        $("#level-title").text("Level: "+level);
-        nextSequence();
-        
-    }
-
-});
-$(document).click(function (e) { 
-    if(started == false ){
-        started = true;
-
-        $("#level-title").text("Level: "+level);
-        nextSequence();
-        
-    }
-
-});
 function nextSequence(){
     userSelectPattern= [];
     level = level +1;
-                $("#level-title").text("Level: "+level);
+    $("#level-title").text("Level: "+level);
     let randomNumber = Math.floor(Math.random()*4);
     let randomColor = gameColors[randomNumber];
     gamePattern.push(randomColor);
@@ -71,7 +81,13 @@ function answerCheck(level){
     }
 
     else{
-        $("#level-title").text("Game Over !! Please Press Any Key Or Click On The Screen To Play Again!");
+        if($(window).width() > 1200){
+            $("#level-title").text("Game Over !! Please Press Any Key To Play Again!");
+        }
+        else{
+            $("#level-title").text("Game Over !! Please Click On The Screen To Play Again!");
+        }
+        
         audioPlay("wrong");
         gameOver();
     }
@@ -83,3 +99,13 @@ function gameOver(){
     gamePattern = [];
 }
 
+
+
+
+
+// if($(window).width(); > 1200){
+
+// }
+// else{
+
+// }
