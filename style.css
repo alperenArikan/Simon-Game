@@ -50,8 +50,3 @@ p{
   background-color: yellow;
 }
 
-@media (min-width: 1200px){
-  #level-title{
-    content: "Press Any Key To Start The Game";
-  }
-}
